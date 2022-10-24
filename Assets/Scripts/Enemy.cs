@@ -5,6 +5,9 @@ using UnityEngine.AI; //ADDED
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] Material _idleMaterial;
+    [SerializeField] Material _chaseMaterial;
+
     NavMeshAgent _enemy;
     Transform _playerTransform;
 
@@ -21,7 +24,14 @@ public class Enemy : MonoBehaviour
         HandlePlayerChase();
     }
 
-    public void HandlePlayerChase()
+    public void ToggleChase()
+    {
+        _bShouldChase = !_bShouldChase;
+        UpdateEnemyMaterial();
+        Debug.Log($"Chase bool now set to: {_bShouldChase}");
+    }
+
+    void HandlePlayerChase()
     {
         if (_bShouldChase)
         {
@@ -30,9 +40,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void ToggleChase()
+    void UpdateEnemyMaterial()
     {
-        _bShouldChase = !_bShouldChase;
-        Debug.Log($"Chase bool now set to: {_bShouldChase}");
+        if (_bShouldChase)
+        {
+            GetComponent<Renderer>().material = _chaseMaterial;
+        }
+        else
+        GetComponent<Renderer>().material = _idleMaterial;
     }
 }

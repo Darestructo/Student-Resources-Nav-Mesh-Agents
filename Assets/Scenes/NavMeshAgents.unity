@@ -1715,6 +1715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5b0a2014bf2d84db2db8ed80ce0b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _idleMaterial: {fileID: 2100000, guid: f8e121a0a6894d447b1f47bbb81a0e64, type: 2}
+  _chaseMaterial: {fileID: 2100000, guid: d72356537dd8d6d48ac17b0a2119d0a9, type: 2}
 --- !u!1 &1499000339
 GameObject:
   m_ObjectHideFlags: 0
